@@ -2,17 +2,28 @@ import React from "react";
 import { useState } from "react";
 const Tech = () => {
   const [contact, setContact] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    msg: "",
+    name: "a",
+    email: "a",
+    phone: "7",
+    msg: "a",
   });
+
+  const { name, email, phone, msg } = contact;
 
   const onChange = (e) => {
     setContact({ ...contact, [e.target.name]: [e.target.value] });
   };
 
-  const onSubmit = () => {};
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (name !== "" && email !== "" && phone !== "" && msg !== "") {
+      document.querySelector("#submitForm").style.display = "none";
+      document.querySelector(".submitSuccess").style.display = "flex";
+      document.querySelector(".errormsg").style.display = "none";
+    } else if (name === "" || email === "" || phone === "" || msg === "") {
+      document.querySelector(".errormsg").style.display = "block";
+    }
+  };
 
   return (
     <div className="contact-wrapper-main" id="contact">
@@ -45,6 +56,17 @@ const Tech = () => {
           </div>
         </div>
         <div className="contact-form">
+          <h3
+            className="errormsg"
+            style={{
+              color: "red",
+              border: "none",
+              margin: "1rem 0 -1rem 1rem",
+              display: "none",
+            }}
+          >
+            Please fill all the fields!
+          </h3>
           <form>
             <input
               name="name"
@@ -52,6 +74,7 @@ const Tech = () => {
               value={contact.name}
               placeholder="Your Name"
               onChange={onChange}
+              required
             />
             <input
               name="email"
@@ -59,6 +82,7 @@ const Tech = () => {
               value={contact.email}
               placeholder="Your Email"
               onChange={onChange}
+              required
             />
             <input
               name="phone"
@@ -66,16 +90,25 @@ const Tech = () => {
               value={contact.phone}
               placeholder="Your Phone"
               onChange={onChange}
+              required
             />
-            {/*<input type="text" value={msg} placeholder="Your Message" className="msg" /> */}
             <textarea
               name="msg"
               placeholder="Your Message"
               value={contact.msg}
               onChange={onChange}
+              required
             ></textarea>
-            <button onClick={onSubmit} className="submitForm">
+            <button onClick={onSubmit} className="submitForm" id="submitForm">
               Send Message
+            </button>
+            <button
+              onClick={onSubmit}
+              className="submitForm submitSuccess"
+              disabled="disabled"
+            >
+              <i className="fa-solid fa-check-circle fa-xl"></i> Message Sent
+              Successfully!
             </button>
           </form>
         </div>

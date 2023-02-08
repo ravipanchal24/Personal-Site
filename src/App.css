@@ -376,7 +376,7 @@ hr{
     width: 600px;
 }
 
-.contact-form input, button, textarea{
+.contact-form input, button, textarea, h3{
     display: block;
     border: none;
     padding: 1rem;
@@ -432,6 +432,21 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+.submitSuccess{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: auto;
+    display: none;
+    background-position: right;
+}
+
+.fa-check-circle{
+    color: black;
+}
+
+/* responsiveness code */
 @media screen and (max-width: 480px) {
 
     .intro{
