@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
 import { useState } from "react";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 const Tech = () => {
   const [contact, setContact] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    msg: "",
+    name: "mmm",
+    email: "mm@mm.cm",
+    phone: "213",
+    msg: "hello",
   });
 
   const { name, email, phone, msg } = contact;
@@ -24,13 +24,23 @@ const Tech = () => {
       document.querySelector(".submitSuccess").style.display = "flex";
       document.querySelector(".errormsg").style.display = "none";
 
-      emailjs.sendForm('service_ksdkf86', 'template_aw0mfup', form.current, 'L0U0J8QwPbUIdcUCD')
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
+      console.log(`${process.env.REACT_APP_SERVICE_ID}`);
 
+      emailjs
+        .sendForm(
+          `${process.env.REACT_APP_SERVICE_ID}`,
+          `${process.env.REACT_APP_TEMPLATE_ID}`,
+          form.current,
+          `${process.env.REACT_APP_PUBLIC_KEY}`
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
     } else if (name === "" || email === "" || phone === "" || msg === "") {
       document.querySelector(".errormsg").style.display = "block";
     }
