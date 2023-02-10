@@ -16,9 +16,7 @@ const Projects = () => {
           />
           <p className="project-hover">Hover over the image to zoom</p>
           <p className="project-description">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor
-            velit veniam enim sit asperiores nesciunt blanditiis provident
-            eligendi inventore veritatis.
+            A full stack MERN application that allows user to create, manage & organize their contacts with basic CRUD functionality along with login and sign up features.
           </p>
           <a
             href="https://github.com/ravipanchal24/Contact-Keeper"
@@ -43,9 +41,8 @@ const Projects = () => {
             alt="githubfinder2"
           />
           <p className="project-description">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor
-            velit veniam enim sit asperiores nesciunt blanditiis provident
-            eligendi inventore veritatis.
+            A simple React app that allows to search Github users and see their profile along with information like public repos, followers etc.
+            Implemented using public Github APIs.
           </p>
           <a
             href="https://github.com/ravipanchal24/github-finder"
@@ -67,9 +64,7 @@ const Projects = () => {
           />
           <p className="project-hover">Hover over the image to zoom</p>
           <p className="project-description">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor
-            velit veniam enim sit asperiores nesciunt blanditiis provident
-            eligendi inventore veritatis.
+            Basic task management app made in React that can be used to manage day to day tasks and activities with options like to mark tasks as done or sort them in a particular order.
           </p>
           <a
             href="https://github.com/ravipanchal24/todoListApp"

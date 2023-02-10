@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
 const Tech = () => {
   const [contact, setContact] = useState({
-    name: "a",
-    email: "a",
-    phone: "7",
-    msg: "a",
+    name: "",
+    email: "",
+    phone: "",
+    msg: "",
   });
 
   const { name, email, phone, msg } = contact;
+
+  const form = useRef();
 
   const onChange = (e) => {
     setContact({ ...contact, [e.target.name]: [e.target.value] });
@@ -20,6 +23,14 @@ const Tech = () => {
       document.querySelector("#submitForm").style.display = "none";
       document.querySelector(".submitSuccess").style.display = "flex";
       document.querySelector(".errormsg").style.display = "none";
+
+      emailjs.sendForm('service_ksdkf86', 'template_aw0mfup', form.current, 'L0U0J8QwPbUIdcUCD')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+
     } else if (name === "" || email === "" || phone === "" || msg === "") {
       document.querySelector(".errormsg").style.display = "block";
     }
@@ -33,10 +44,17 @@ const Tech = () => {
           <h1>Contact Information</h1>
           <h2>I would love to hear from you, please drop a message.</h2>
           <p>
-            <i className="fa-solid fa-phone"></i> 8510968934
+            <i className="fa-solid fa-phone"></i> +91-8510968934
           </p>
           <p>
-            <i className="fa-solid fa-envelope"></i> mpravikumar04@gmail.com
+            <i className="fa-solid fa-envelope"></i>{" "}
+            <a
+              href="mailto:mpravikumar04@gmail.com"
+              style={{ textDecoration: "none", color: "teal" }}
+            >
+              {" "}
+              mpravikumar04@gmail.com
+            </a>
           </p>
           <div className="social-media">
             <a
@@ -61,13 +79,14 @@ const Tech = () => {
             style={{
               color: "red",
               border: "none",
-              margin: "1rem 0 -1rem 1rem",
+              margin: "1rem 0 -2rem 1rem",
               display: "none",
+              width: "fit-content",
             }}
           >
             Please fill all the fields!
           </h3>
-          <form>
+          <form ref={form}>
             <input
               name="name"
               type="text"
