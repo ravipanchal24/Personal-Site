@@ -3,10 +3,10 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 const Tech = () => {
   const [contact, setContact] = useState({
-    name: "mmm",
-    email: "mm@mm.cm",
-    phone: "213",
-    msg: "hello",
+    name: "",
+    email: "",
+    phone: "",
+    msg: "",
   });
 
   const { name, email, phone, msg } = contact;
