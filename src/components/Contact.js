@@ -20,11 +20,12 @@ const Tech = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (name !== "" && email !== "" && phone !== "" && msg !== "") {
-      document.querySelector("#submitForm").style.display = "none";
-      document.querySelector(".submitSuccess").style.display = "flex";
-      document.querySelector(".errormsg").style.display = "none";
+      setTimeout(() => {
+        document.querySelector("#submitForm").style.display = "none";
+        document.querySelector(".submitSuccess").style.display = "flex";
+        document.querySelector(".errormsg").style.display = "none";
+      }, 500);
 
-      console.log(`${process.env.REACT_APP_SERVICE_ID}`);
 
       emailjs
         .sendForm(
