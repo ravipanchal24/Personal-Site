@@ -3,10 +3,32 @@ import contactkeeper from "../Images/contactkeeper.png";
 import githubfinder1 from "../Images/githubfinder1.png";
 import githubfinder2 from "../Images/githubfinder2.png";
 import todolist from "../Images/todolist.png";
+import livechat from "../Images/livechat.png";
 const Projects = () => {
   return (
     <div className="project-container" id="project">
       <h1 className="heading">Projects</h1>
+      <div className="project">
+        <h2 className="project-title">Live Chat App</h2>
+        <div className="project-info">
+          <img
+            src={livechat}
+            alt="contactkeeper"
+          />
+          <p className="project-hover">Hover over the image to zoom</p>
+          <p className="project-description">
+            Live chat app allows user to chat with each other in real time. Front-end made using ReactJS, backend using Node.js and socket.IO to manage connections.
+          </p>
+          <a
+            href="https://github.com/ravipanchal24/Live-Chat-App"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <i className="fa-brands fa-github fa-3x"></i>
+          </a>
+        </div>
+      </div>
+      <hr />
       <div className="project">
         <h2 className="project-title">Contact Keeper</h2>
         <div className="project-info">
